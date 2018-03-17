@@ -1,13 +1,4 @@
-
-# node-server 基于node Http模块搭建本地服务器
-
-> 犹记得当初咿呀学php时被wamp支配的恐惧. 
-  
- 用法： node server。然后，完了。
- 
- 代码也简单，对于稍对node有了解的同仁，都不是问题。
- ```javascript  
- //------------------------------------------------ 
+//------------------------------------------------ 
 // 利用nodejs搭建一个简单的Web服务器 
 //------------------------------------------------ 
 
@@ -63,19 +54,17 @@ var funWebSvr = function (req, res) {
     var reqUrl = req.url;
     
     //向控制台输出请求的路径 
-    // console.log(reqUrl);
+    console.log(reqUrl);
     
     //使用url解析模块获取url中的路径名 
-    var pathName = libUrl.parse(reqUrl).pathname;  
-
-    console.log(pathName, libPath.extname(pathName), pathName.charAt(pathName.length - 1)) 
+    var pathName = libUrl.parse(reqUrl).pathname;    
     if (libPath.extname(pathName) == "") {
         //如果路径没有扩展名 
         pathName += "/"; //指定访问目录 
     }
     if (pathName.charAt(pathName.length - 1) == "/") {
         //如果访问目录 
-        pathName += "index.html"; //指定为默认网页 
+        pathName += "h5.html"; //指定为默认网页 
     }
     
     //使用路径解析模块,组装实际文件路径 
@@ -125,4 +114,3 @@ webSvr.listen(8888, function () {
     //关闭服务启动计时器
     console.timeEnd('start WebServer need time');
 });
- ```
